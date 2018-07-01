@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "47170315157",
+    "firebase_url": "https://friendrecommendation-eb1ab.firebaseio.com",
+    "project_id": "friendrecommendation-eb1ab",
+    "storage_bucket": "friendrecommendation-eb1ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47170315157:android:77b206adbf039159",
+        "android_client_info": {
+          "package_name": "com.example.puza.friendrecommendation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47170315157-skv10htbkngo80c5ceo1lp5fv33aspt1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.puza.friendrecommendation",
+            "certificate_hash": "783ef5c7c8181a9cbf9055b57b94480db554ad17"
+          }
+        },
+        {
+          "client_id": "47170315157-loguabe3dib2bkfdrg1fkp40d6u1lg7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt6VJPdoX80RqAqYOOUSI2zwWcoTN_eFw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47170315157-loguabe3dib2bkfdrg1fkp40d6u1lg7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
