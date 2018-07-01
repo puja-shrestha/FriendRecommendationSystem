@@ -81,30 +81,6 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="@dimen/layout_height_register"
-                android:text="Email address"
-                android:fontFamily="@font/sans"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:textSize="@dimen/small_sixteen_text_size"/>
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/layout_height_register"
-                android:hint="Email"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="10dp"
-                android:layout_weight="2"
-                android:background="@drawable/button_backgroung_rectangle"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="@dimen/layout_height_register"
                 android:text="Password"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -145,6 +121,34 @@
                 android:layout_weight="2"
                 android:background="@drawable/button_backgroung_rectangle"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/layout_height_register"
+                android:layout_weight="1"
+                android:fontFamily="@font/sans"
+                android:text="Email address"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/small_sixteen_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/layout_height_register"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_backgroung_rectangle"
+                android:hint="Email"
+                android:paddingLeft="10dp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -334,7 +338,7 @@
             android:id="@+id/registerBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="create"
+            android:text="Register"
             android:fontFamily="@font/sans"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
