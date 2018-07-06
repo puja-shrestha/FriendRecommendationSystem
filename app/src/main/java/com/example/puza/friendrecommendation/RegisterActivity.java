@@ -15,11 +15,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.puza.friendrecommendation.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.Calendar;
 
@@ -41,6 +48,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Context context;
 
     private FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference ref;
+
+    User user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +61,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mAuth = FirebaseAuth.getInstance();
 
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("User");
+        user = new User();
 
         findViewById(R.id.registerBtn).setOnClickListener(this);
 
@@ -99,6 +113,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     finish();
+                    getValues();
+                    ref.child("02").setValue(user);
+                    Toast.makeText(RegisterActivity.this,"Data Inserted...",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
 
@@ -112,7 +129,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         });
+    }
 
+    private void getValues(){
+        user.setFirstName(first_name.getText().toString());
+        user.setLastName(last_name.getText().toString());
+        user.setAddress(address.getText().toString());
     }
 
     @Override
@@ -120,6 +142,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.registerBtn:
                 registerUser();
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        getValues();
+                        ref.child("02").setValue(user);
+                        Toast.makeText(RegisterActivity.this,"Data Inserted...",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 break;
         }
     }
